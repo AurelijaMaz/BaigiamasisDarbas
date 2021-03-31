@@ -21,12 +21,28 @@ const requestOptions = {
     } catch ({ message }) {
       failure(message);
     }
+  };
+
+  export const postUser = async (body, success, failure) => {
+    try {
+      const res = await fetch(domain + '/users', {
+        method: 'POST',
+        ...requestOptions,
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message)
+      success(data);
+    } catch ({ message }) {
+      failure(message);
+    }
   }
 
 
 
   const API = {
-    getUsers
+    getUsers,
+    postUser
   };
   
   export default API;

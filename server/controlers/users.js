@@ -21,9 +21,16 @@ const getUsers = async (req, res) => {
     }
   }
 
-const postUser =  async (req, res) => {
-    res.status(200).json('')
-}
+  const postUser = async (req, res) => {
+    const { name, age, email, password } = req.body;
+    try {
+      const newUser = await UserModel.create({ name, age, email, password  });
+      res.status(200).json({ car: formUserResponseModel(newUser) });
+    }
+    catch (error) {
+      res.status(404).json({ message: error.message });
+    }
+  }
 
 const updateUser =  async (req, res) => {
     res.status(200).json('')

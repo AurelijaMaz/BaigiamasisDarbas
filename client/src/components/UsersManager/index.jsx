@@ -17,6 +17,11 @@ export default class UsersManager extends Component {
     fecthUsers = () => {
       API.getUsers(({ users }) => this.setState({ users }), this.displayError)
     }
+
+    // POST
+  createUser = (data) => {
+    API.postUser(data, this.fecthUsers, this.displayError);
+  }
   
     
   
@@ -27,6 +32,11 @@ export default class UsersManager extends Component {
     displayError = errMsg => {
         console.log(errMsg);
         this.setState({ errMsg });
+      }
+
+
+      componentDidMount() {
+        this.fecthUsers();
       }
   
     render() {
