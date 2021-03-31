@@ -1,0 +1,25 @@
+{
+  "name": "baigiamasisdarbas",
+  "version": "1.0.0",
+  "description": "Egzaminas",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AurelijaMaz/BaigiamasisDarbas.git"
+  },
+  "keywords": [
+    "Mongo",
+    "Express",
+    "React",
+    "Node"
+  ],
+  "author": "Aurelija Mazeikiene",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AurelijaMaz/BaigiamasisDarbas/issues"
+  },
+  "homepage": "https://github.com/AurelijaMaz/BaigiamasisDarbas#readme"
+}
