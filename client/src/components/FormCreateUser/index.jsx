@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import InputGroup from '../InputGroup';
 
 export class FormCreateUser extends Component {
   state = {
@@ -44,8 +44,35 @@ export class FormCreateUser extends Component {
   }
 
   render() {
-    return
-    
-}
+    const { name, age, email, password, isUpdating } = this.state;
+    const actionName = (isUpdating ? 'Update' : 'Create') + ' User';
+
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <h3>{actionName}</h3>
+        <InputGroup
+          name="name"
+          value={name}
+          handleChange={(name) => this.setState({ name })}
+        />
+        <InputGroup
+          name="age"
+          value={age}
+          handleChange={(age) => this.setState({ age })}
+        />
+        <InputGroup
+          name="email"
+          value={email}
+          handleChange={(email) => this.setState({ email })}
+        />
+        <InputGroup
+          name="password"
+          value={password}
+          handleChange={(password) => this.setState({ password })}
+        />
+        <button>{actionName}</button>
+      </form>
+    )
+  }
 }
 export default FormCreateUser
