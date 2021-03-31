@@ -22,6 +22,7 @@ export class UserTable extends Component {
     const rows = this.createDataRows(users);
     return (
       <div>
+          <h1>Ačiū Jums </h1>
         { users.length === 0
           ? <h2>Nėra vartotojų</h2>
           : <table className={styles.Table}>
