@@ -54,7 +54,11 @@ export default class UsersManager extends Component {
     render() {
       return (
         <div className={styles.Grid}>
-          
+         <UserTable
+          users={this.state.users}
+          deleteUser={this.deleteUser}
+          editUser={this.editUser}
+        /> 
         </div>
       )
     }
