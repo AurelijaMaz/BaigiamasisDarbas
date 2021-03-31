@@ -45,28 +45,28 @@ export class FormCreateUser extends Component {
 
   render() {
     const { name, age, email, password, isUpdating } = this.state;
-    const actionName = (isUpdating ? 'Update' : 'Create') + ' User';
+    const actionName = (isUpdating ? 'Atnaujinti' : 'Sukurti') + ' vartotoją';
 
     return (
       <form onSubmit={this.handleSubmit}>
         <h3>{actionName}</h3>
         <InputGroup
-          name="name"
+          name="Vardas"
           value={name}
           handleChange={(name) => this.setState({ name })}
         />
         <InputGroup
-          name="age"
+          name="Amžius"
           value={age}
           handleChange={(age) => this.setState({ age })}
         />
         <InputGroup
-          name="email"
+          name="E. paštas"
           value={email}
           handleChange={(email) => this.setState({ email })}
         />
         <InputGroup
-          name="password"
+          name="Slaptažodis"
           value={password}
           handleChange={(password) => this.setState({ password })}
         />

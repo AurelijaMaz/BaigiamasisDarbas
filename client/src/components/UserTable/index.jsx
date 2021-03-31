@@ -11,8 +11,8 @@ export class UserTable extends Component {
         <td>{email}</td>
         <td>{password}</td>
         <td>
-          <button className={styles.Button} onClick={() => this.props.editUser(id)}>Update</button>
-          <button className={styles.Button} onClick={() => this.props.deleteUser(id)}>Delete</button>
+          <button className={styles.Button} onClick={() => this.props.editUser(id)}>Atnaujinti</button>
+          <button className={styles.Button} onClick={() => this.props.deleteUser(id)}>Ištrinti</button>
         </td>
       </tr>
     ))
@@ -23,14 +23,14 @@ export class UserTable extends Component {
     return (
       <div>
         { users.length === 0
-          ? <h2>No users</h2>
+          ? <h2>Nėra vartotojų</h2>
           : <table className={styles.Table}>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Email</th>
-                <th>Password</th>
+                <th>Vardas</th>
+                <th>Amžius</th>
+                <th>El. paštas</th>
+                <th>Spaltažodis</th>
                 <th></th>
               </tr>
             </thead>
