@@ -40,16 +40,27 @@ const getUsers = async (req, res) => {
       const updatedUser = await UserModel.findByIdAndUpdate(id, req.body, { new: true });
       if (updatedUser === null)
         throw new Error(`Not found user with id '${id}'`);
-      res.status(200).json({ user: formUserResponseModel(updatedCar) });
+      res.status(200).json({ user: formUserResponseModel(updatedUser) });
     }
     catch (error) {
       res.status(404).json({ message: error.message });
     }
   }
 
-const deleteUser =  async (req, res) => {
-    res.status(200).json('')
-}
+  const deleteUser = async (req, res) => {
+    const { id } = req.params;
+    try {
+      if (!mongoose.Types.ObjectId.isValid(id))
+        throw new Error(`Error id '${id}' `);
+      const deletedUser = await UserModel.findByIdAndDelete(id);
+      if (deletedUser === null)
+        throw new Error(`Do not deleted id '${id}'`);
+      res.status(200).json({ car: formUserResponseModel(deletedUser) });
+    }
+    catch (error) {
+      res.status(404).json({ message: error.message });
+    }
+  }
 
 module.exports = {
 

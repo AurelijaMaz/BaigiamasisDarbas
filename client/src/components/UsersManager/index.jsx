@@ -21,6 +21,11 @@ export default class UsersManager extends Component {
     // POST
   createUser = (data) => {
     API.postUser(data, this.fecthUsers, this.displayError);
+
+  }
+
+  editUser = (id) => {
+    this.setState({ editedUserId: id === this.state.editedUserId ? null : id });
   }
   
     
@@ -30,7 +35,10 @@ export default class UsersManager extends Component {
     this.setState({ editedUserId: null });
   }
     
-  
+  // DELETE
+  deleteUser = (id) => {
+    API.deleteUser(id, this.fecthUsers, this.displayError)
+  }
     
   
     displayError = errMsg => {

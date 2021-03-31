@@ -53,12 +53,27 @@ const requestOptions = {
     }
   }
 
+  export const deleteUser = async (id, success, failure) => {
+    try {
+      const res = await fetch(domain + `/users/${id}`, {
+        method: 'DELETE',
+        ...requestOptions,
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message)
+      success(data);
+    } catch ({ message }) {
+      failure(message);
+    }
+  }
+
 
 
   const API = {
     getUsers,
     postUser,
-    updateUser
+    updateUser, 
+    deleteUser
   };
   
   export default API;
