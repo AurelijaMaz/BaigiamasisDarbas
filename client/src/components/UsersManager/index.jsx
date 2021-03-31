@@ -24,7 +24,11 @@ export default class UsersManager extends Component {
   }
   
     
-  
+  // PATCH
+  saveUser = (data) => {
+    API.updateUser(this.state.editedUserId, data, this.fecthUsers, this.displayError);
+    this.setState({ editedUserId: null });
+  }
     
   
     

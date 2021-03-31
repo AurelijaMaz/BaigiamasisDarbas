@@ -38,11 +38,27 @@ const requestOptions = {
     }
   }
 
+  export const updateUser = async (id, body, success, failure) => {
+    try {
+      const res = await fetch(domain + `/users/${id}`, {
+        method: 'PATCH',
+        ...requestOptions,
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message)
+      success(data);
+    } catch ({ message }) {
+      failure(message);
+    }
+  }
+
 
 
   const API = {
     getUsers,
-    postUser
+    postUser,
+    updateUser
   };
   
   export default API;
