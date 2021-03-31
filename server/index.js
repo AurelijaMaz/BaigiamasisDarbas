@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config({ path:'server/.env'});
-
+const usersRouter = require('./routes/users');
 
 const  server = express();
 
@@ -15,6 +15,11 @@ const { SERVER_PORT,
 //Midlewares
 server.use(cors());
 server.use(express.json());
+
+
+//Add routes
+
+server.use('/users', usersRouter);
 
 
 server.get('/', (req, res) => {
