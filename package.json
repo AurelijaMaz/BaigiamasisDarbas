@@ -4,7 +4,8 @@
   "description": "Egzaminas",
   "main": "server/index.js",
   "scripts": {
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "start": "cd client & npm start"
   },
   "repository": {
     "type": "git",
